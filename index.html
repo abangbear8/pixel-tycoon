@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#13251e"><title>Pixel Tycoon — Kedai ke Empayar</title>
+<style>
+:root{--bg:#102019;--panel:#1c3027;--panel2:#294236;--line:#476755;--ink:#f4f4e8;--muted:#b0c5b6;--gold:#ffd166;--green:#7ce0a0;--red:#ff8585;--blue:#8dd9ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);background-image:linear-gradient(#ffffff05 1px,transparent 1px),linear-gradient(90deg,#ffffff05 1px,transparent 1px);background-size:16px 16px;color:var(--ink);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}button,input,select{font:inherit}button{cursor:pointer;touch-action:manipulation}button:disabled{opacity:.4;cursor:not-allowed}.app{max-width:1020px;margin:auto;padding:12px}.header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.logo{display:flex;gap:10px;align-items:center}.iconbox{height:45px;width:45px;background:#395a43;border:3px solid var(--gold);box-shadow:4px 4px #07120c;display:grid;place-items:center;font-size:24px}.title{font-size:clamp(18px,4vw,27px);font-weight:1000;letter-spacing:-1px}.sub{font-size:10px;color:var(--muted);margin-top:4px}.day{border:2px solid var(--line);background:var(--panel);padding:8px 10px;text-align:right;font-size:10px;box-shadow:3px 3px #07120c}.day b{display:block;color:var(--gold);font-size:17px}.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:10px}.metric{background:var(--panel);border:2px solid var(--line);padding:8px 6px;box-shadow:3px 3px #07120c;min-width:0}.metric label{font-size:9px;color:var(--muted);display:block}.metric strong{font-size:clamp(14px,3vw,20px)}.metric span{margin-right:3px}.layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(270px,.8fr);gap:10px;align-items:start}.panel{background:var(--panel);border:2px solid var(--line);padding:10px;box-shadow:4px 4px #07120c;min-width:0}.ptitle{font-size:12px;font-weight:900;display:flex;justify-content:space-between;gap:6px;margin-bottom:9px}.map{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.plot{border:2px solid #17281e;min-width:0;aspect-ratio:1/1.05;background:#496b42;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;color:white;text-shadow:2px 2px #111;font-size:clamp(20px,5vw,36px);box-shadow:inset 0 -4px #0002;padding:0}.plot.empty{background:#395b3a}.plot.store{background:#8b6943}.plot.factory{background:#5c6870}.plot.farm{background:#8c9848}.plot.office{background:#6c5b8b}.plot.selected{outline:3px solid var(--gold);outline-offset:-3px;z-index:1}.plot .label{font-size:8px;text-shadow:none;background:#101bcb88;padding:2px 3px;max-width:100%;white-space:nowrap;overflow:hidden}.plot .lvl{position:absolute;right:2px;top:2px;font-size:9px;background:#09140dba;padding:2px}.smallmuted{font-size:10px;color:var(--muted);line-height:1.5}.side{display:grid;gap:10px}.boxinfo{background:#11241a;border:1px solid var(--line);padding:9px;margin-bottom:8px}.boxinfo b{font-size:12px;display:block}.boxinfo p{font-size:10px;line-height:1.5;color:var(--muted);margin:5px 0 0}.actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}.action{background:var(--panel2);border:1px solid #587660;color:var(--ink);padding:9px 7px;min-height:62px;text-align:left;box-shadow:2px 2px #07120c}.action b{font-size:11px;display:block}.action small{display:block;color:var(--muted);font-size:9px;line-height:1.35;margin-top:5px}.action.primary{background:#27583c;border-color:#7ce0a0}.action.danger{background:#5b3330;border-color:#bc7266}.mainbtn{width:100%;padding:12px;background:var(--gold);border:2px solid #fff0bd;color:#18251c;font-weight:1000;margin-top:8px;box-shadow:3px 3px #07120c}.btnrow{display:flex;gap:6px;margin-top:7px}.btnrow button{flex:1;background:#11241a;border:1px solid var(--line);color:var(--muted);font-size:10px;padding:8px 3px}.log{display:flex;flex-direction:column;gap:5px;max-height:125px;overflow:auto;font-size:10px;color:#c7d8cb}.log div{border-bottom:1px solid #304c3b;padding-bottom:5px;line-height:1.4}.progress{height:8px;background:#0d1812;border:1px solid var(--line);margin-top:7px}.progress div{height:100%;background:var(--green);width:0}.toast{font-size:10px;color:var(--gold);min-height:14px;margin-top:7px}.footer{text-align:center;color:#81998a;font-size:9px;padding:14px 0}.overlay{position:fixed;inset:0;background:#06100beF;display:flex;align-items:center;justify-content:center;padding:15px;z-index:10}.modal{width:100%;max-width:480px;background:var(--panel);border:3px solid #66836e;box-shadow:7px 7px #030805;padding:20px}.modal h2{font-size:clamp(22px,6vw,30px);color:var(--gold);margin:0 0 9px}.modal p,.modal li{font-size:12px;line-height:1.65;color:#c5d7ca}.modal ul{padding-left:18px}.modal button{width:100%;padding:13px;background:var(--gold);border:2px solid #fff0b7;color:#18251c;font-weight:1000}.hidden{display:none!important}
+@media(max-width:700px){.app{padding:8px}.layout{grid-template-columns:1fr}.panel{padding:8px}.metrics{gap:4px}.metric{padding:7px 4px}.metric label{font-size:8px}.map{gap:3px}.plot{font-size:clamp(19px,6vw,32px)}.side{grid-template-columns:1fr}.log{max-height:100px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="header"><div class="logo"><div class="iconbox">🏪</div><div><div class="title">PIXEL TYCOON</div><div class="sub">KEDAI KECIL → EMPAYAR BESAR</div></div></div><div class="day">HARI KE<b id="day">1</b><span id="phase">OPERASI</span></div></header>
+<section class="metrics">
+<div class="metric"><label><span>💵</span> TUNAI</label><strong id="cash">RM 1,000</strong></div>
+<div class="metric"><label><span>📦</span> STOK</label><strong id="stock">20</strong></div>
+<div class="metric"><label><span>⭐</span> REPUTASI</label><strong id="rep">50</strong></div>
+<div class="metric"><label><span>👥</span> PEKERJA</label><strong id="staff">1</strong></div>
+<div class="metric"><label><span>🏢</span> CAWANGAN</label><strong id="branches">1</strong></div>
+</section>
+<div class="layout">
+<section class="panel"><div class="ptitle"><span>LOT PERNIAGAAN</span><span id="businessType">KEDAI RUNCIT</span></div><div id="map" class="map"></div><p class="smallmuted">Pilih lot untuk urus cawangan. Lot kosong boleh dibeli dan dibangunkan.</p><div class="progress"><div id="progressBar"></div></div><div class="toast" id="toast" aria-live="polite"></div></section>
+<div class="side">
+<section class="panel"><div class="ptitle"><span>PUSAT PENGURUSAN</span><span id="selectedTag">LOT 1</span></div><div class="boxinfo"><b id="plotTitle">Kedai Runcit</b><p id="plotInfo">Kedai asas kau. Jual barang untuk memperoleh tunai dan reputasi.</p></div>
+<div class="actions">
+<button class="action primary" id="sell"><b>🛒 JUAL STOK</b><small>Jual barang hari ini</small></button>
+<button class="action" id="restock"><b>📦 TAMBAH STOK</b><small>RM 120 · +15 stok</small></button>
+<button class="action" id="hire"><b>👷 AMBIL PEKERJA</b><small>RM 250 · kapasiti naik</small></button>
+<button class="action" id="upgrade"><b>🔧 NAIK TARAF</b><small>RM 400 · pendapatan naik</small></button>
+<button class="action" id="marketing"><b>📣 PEMASARAN</b><small>RM 180 · reputasi naik</small></button>
+<button class="action" id="buyPlot"><b>🏗 BELI LOT</b><small>RM 500 · lot kosong</small></button>
+<button class="action" id="buildStore"><b>🏪 BINA KEDAI</b><small>RM 800 · cawangan baru</small></button>
+<button class="action" id="buildFactory"><b>🏭 BINA KILANG</b><small>RM 1,200 · hasil stok</small></button>
+<button class="action" id="buildFarm"><b>🌾 BINA LADANG</b><small>RM 900 · hasil harian</small></button>
+<button class="action danger" id="loan"><b>🏦 PINJAMAN</b><small>+RM 700 · hutang RM 850</small></button>
+</div><button class="mainbtn" id="nextDay">TUTUP KEDAI & TAMAT HARI ▶</button><div class="btnrow"><button id="save">SIMPAN</button><button id="load">MUAT SIMPANAN</button><button id="reset">MULA SEMULA</button></div></section>
+<section class="panel"><div class="ptitle"><span>MATLAMAT EMPAYAR</span><span id="goalPct">0%</span></div><div class="smallmuted" id="goal">Capai nilai syarikat RM 10,000 dan reputasi 80 untuk menang.</div><div class="progress"><div id="goalBar"></div></div></section>
+<section class="panel"><div class="ptitle"><span>JURNAL PERNIAGAAN</span><span id="logCount">0</span></div><div class="log" id="log" aria-live="polite"></div></section>
+</div></div>
+<div class="footer">PIXEL TYCOON · SINGLE PLAYER · SIMPANAN DALAM BROWSER INI</div></div>
+<div class="overlay" id="overlay"><div class="modal"><h2 id="modalTitle">PIXEL TYCOON</h2><p id="modalDesc">Bermula dengan sebuah kedai kecil. Urus stok, pekerja dan pemasaran, kemudian kembangkan perniagaan sehingga menjadi empayar.</p><ul><li>Jual stok untuk menjana tunai dan reputasi.</li><li>Tambah stok, ambil pekerja dan naik taraf kedai untuk meningkatkan jualan.</li><li>Beli lot kosong untuk membuka kedai, kilang atau ladang.</li><li>Setiap hari, gaji dan kos operasi akan ditolak daripada tunai.</li><li>Menang apabila nilai syarikat mencecah RM10,000 dan reputasi sekurang-kurangnya 80.</li></ul><button id="start">MULA PERNIAGAAN</button></div></div>
+<script>
+(()=>{"use strict";
+const $=id=>document.getElementById(id), TOTAL=15;
+let G,selected=0,over=false;
+const names={empty:"Lot kosong",store:"Kedai runcit",factory:"Kilang",farm:"Ladang",office:"Pejabat"};
+const icons={empty:"🌳",store:"🏪",factory:"🏭",farm:"🌾",office:"🏢"};
+function fresh(){let plots=Array.from({length:TOTAL},()=>({type:"empty",owned:false,level:0,staff:0}));plots[0]={type:"store",owned:true,level:1,staff:1};return {plots,cash:1000,stock:20,rep:50,staff:1,day:1,debt:0,logs:["Pintu kedai dibuka! Urus stok dan bina pelanggan setia."],won:false,lost:false,phase:"operasi"}}
+function log(s){G.logs.unshift(s);G.logs=G.logs.slice(0,35)}
+function money(n){return "RM "+Math.floor(n).toLocaleString("en-MY")}
+function owned(){return G.plots.filter(p=>p.owned&&p.type!=="empty").length}
+function companyValue(){return Math.max(0,G.cash)+G.stock*5+G.plots.reduce((a,p)=>a+(p.owned?(p.type==="store"?700:p.type==="factory"?1100:p.type==="farm"?800:p.type==="office"?1300:0)+p.level*180:0),0)+G.staff*150-G.debt}
+function save(){try{localStorage.setItem("pixelTycoonSave",JSON.stringify({G,selected,over}));return true}catch(e){return false}}
+function restore(){try{let d=JSON.parse(localStorage.getItem("pixelTycoonSave"));if(d&&d.G&&d.G.plots?.length===TOTAL){G=d.G;selected=d.selected||0;over=!!d.over;return true}}catch(e){}return false}
+function toast(t){$("toast").textContent=t;setTimeout(()=>{if($("toast").textContent===t)$("toast").textContent=""},2300)}
+function render(){
+ $("day").textContent=G.day;$("phase").textContent=over?"TAMAT":"OPERASI";$("cash").textContent=money(G.cash);$("stock").textContent=G.stock;$("rep").textContent=G.rep;$("staff").textContent=G.staff;$("branches").textContent=owned();
+ const map=$("map");map.innerHTML="";
+ G.plots.forEach((p,i)=>{let b=document.createElement("button");b.className="plot "+(p.type==="empty"?"empty":p.type)+(i===selected?" selected":"");b.innerHTML=`<span>${icons[p.type]}</span><span class="label">${p.type==="empty"?(p.owned?"LOT DIBELI":"KOSONG"):names[p.type]}</span>${p.level?`<span class="lvl">Lv.${p.level}</span>`:""}`;b.disabled=over;b.setAttribute("aria-label",`Lot ${i+1}, ${names[p.type]}`);b.addEventListener("click",()=>{selected=i;render()});map.appendChild(b)});
+ const p=G.plots[selected];$("selectedTag").textContent="LOT "+(selected+1);$("businessType").textContent=names[G.plots[0].type].toUpperCase();
+ $("plotTitle").textContent=names[p.type]+" · Lot "+(selected+1);
+ $("plotInfo").textContent=p.type==="empty"?(p.owned?"Lot ini sudah dibeli dan sedia dibangunkan.":"Lot belum dimiliki. Beli dahulu sebelum membina."):`Tahap ${p.level}. ${p.type==="store"?"Menjana jualan harian.":p.type==="factory"?"Menghasilkan stok setiap hari.":p.type==="farm"?"Menghasilkan stok dan mengurangkan kos bekalan.":"Meningkatkan nilai syarikat."} Pekerja khusus: ${p.staff}.`;
+ const isOwned=p.owned&&p.type!=="empty",empty=!p.owned&&p.type==="empty";
+ $("sell").disabled=over||!G.stock||!G.plots.some(x=>x.type==="store"&&x.owned);
+ $("restock").disabled=over||G.cash<120;
+ $("hire").disabled=over||G.cash<250||G.staff>=12;
+ $("upgrade").disabled=over||!isOwned||G.cash<400||p.level>=5;
+ $("marketing").disabled=over||G.cash<180;
+ $("buyPlot").disabled=over||!empty||G.cash<500;
+ $("buildStore").disabled=over||!p.owned||p.type!=="empty"||G.cash<800;
+ $("buildFactory").disabled=over||!p.owned||p.type!=="empty"||G.cash<1200;
+ $("buildFarm").disabled=over||!p.owned||p.type!=="empty"||G.cash<900;
+ $("loan").disabled=over||G.debt>0||G.cash>1500;
+ $("nextDay").disabled=over;
+ let pct=Math.min(100,Math.round(companyValue()/10000*100));$("goalPct").textContent=pct+"%";$("goalBar").style.width=pct+"%";$("progressBar").style.width=Math.min(100,Math.round(G.rep))+"%";
+ $("goal").textContent=`Nilai syarikat: ${money(companyValue())} / RM 10,000 · Reputasi ${G.rep}/80 · Hutang ${money(G.debt)}.`;
+ $("log").innerHTML=G.logs.map(x=>"<div>"+esc(x)+"</div>").join("");$("logCount").textContent=G.logs.length;save()
+}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function sell(){
+ if(!G.stock)return;let stores=G.plots.filter(p=>p.type==="store"&&p.owned),capacity=stores.reduce((a,p)=>a+8+p.level*4+p.staff*2,0),qty=Math.min(G.stock,capacity);
+ let price=Math.max(8,Math.floor(10+G.rep/10+stores.reduce((a,p)=>a+(p.level-1)*2,0)));
+ let revenue=qty*price;G.stock-=qty;G.cash+=revenue;G.rep=Math.min(100,G.rep+Math.max(1,Math.floor(qty/5)));log(`Jual ${qty} unit pada ${money(price)}/unit. Hasil jualan ${money(revenue)}.`);if(G.rep>=80&&companyValue()>=10000)win();render()
+}
+function restock(){if(G.cash<120)return;G.cash-=120;G.stock+=15;log("Stok ditambah 15 unit. Kos RM120.");render()}
+function hire(){if(G.cash<250||G.staff>=12)return;G.cash-=250;G.staff++;G.plots[selected].staff++;log("Pekerja baharu diambil. Gaji harian meningkat RM35.");render()}
+function upgrade(){let p=G.plots[selected];if(!p.owned||p.type==="empty"||G.cash<400||p.level>=5)return;G.cash-=400;p.level++;G.rep=Math.min(100,G.rep+2);log(names[p.type]+" dinaik taraf ke tahap "+p.level+".");render()}
+function marketing(){if(G.cash<180)return;G.cash-=180;G.rep=Math.min(100,G.rep+8);log("Kempen pemasaran meningkatkan reputasi +8.");render()}
+function buyPlot(){let p=G.plots[selected];if(p.type!=="empty"||p.owned||G.cash<500)return;G.cash-=500;p.owned=true;log("Lot "+(selected+1)+" dibeli. Pilih jenis bangunan.");render()}
+function build(type,cost){let p=G.plots[selected];if(!p.owned||p.type!=="empty"||G.cash<cost)return;G.cash-=cost;p.type=type;p.level=1;log(names[type]+" baharu dibuka di lot "+(selected+1)+".");render()}
+function loan(){if(G.debt>0||G.cash>1500)return;G.cash+=700;G.debt=850;G.rep=Math.max(0,G.rep-3);log("Pinjaman RM700 diterima. Hutang RM850 perlu dibayar.");render()}
+function closeDay(){
+ if(over)return;
+ let revenue=0,produced=0;
+ G.plots.forEach(p=>{if(!p.owned)return;if(p.type==="factory")produced+=5+p.level*3;if(p.type==="farm")produced+=3+p.level*2;if(p.type==="office")revenue+=p.level*70});
+ G.stock+=produced;
+ const stores=G.plots.filter(p=>p.owned&&p.type==="store").length;
+ const wages=G.staff*35,upkeep=owned()*18,interest=G.debt?45:0;
+ G.cash+=revenue-wages-upkeep-interest;
+ if(G.cash<0){G.rep=Math.max(0,G.rep-5);log("Aliran tunai negatif! Reputasi jatuh 5.");}
+ else if(stores>0){G.rep=Math.min(100,G.rep+1);}
+ G.day++;log(`Hari ditutup: +${produced} stok, ${money(revenue)} pendapatan pasif, ${money(wages+upkeep+interest)} kos operasi.`);
+ if(G.debt&&G.cash>=850){G.cash-=850;G.debt=0;log("Pinjaman dilangsaikan: RM850.");}
+ if(G.rep<=0||G.cash< -1500){over=true;G.lost=true;finish(false)}
+ if(G.rep>=80&&companyValue()>=10000)win();
+ render()
+}
+function win(){G.won=true;over=true;finish(true)}
+function finish(w){$("overlay").classList.remove("hidden");$("modalTitle").textContent=w?"EMPAYAR BERJAYA!":"PERNIAGAAN GULUNG TIKAR";$("modalDesc").textContent=w?"Tahniah! Kau membina empayar bernilai RM10,000 dengan reputasi 80 atau lebih.":"Tunai dan reputasi merosot terlalu jauh. Mulakan semula dengan mengawal kos operasi."; $("start").textContent="MAIN SEMULA";G.phase="over"}
+$("sell").addEventListener("click",sell);$("restock").addEventListener("click",restock);$("hire").addEventListener("click",hire);$("upgrade").addEventListener("click",upgrade);$("marketing").addEventListener("click",marketing);$("buyPlot").addEventListener("click",buyPlot);$("buildStore").addEventListener("click",()=>build("store",800));$("buildFactory").addEventListener("click",()=>build("factory",1200));$("buildFarm").addEventListener("click",()=>build("farm",900));$("loan").addEventListener("click",loan);$("nextDay").addEventListener("click",closeDay);
+$("start").addEventListener("click",()=>{if(over)reset();else{$("overlay").classList.add("hidden");render()}});
+$("save").addEventListener("click",()=>toast(save()?"Simpanan berjaya.":"Simpanan tidak tersedia dalam browser ini."));
+$("load").addEventListener("click",()=>{if(restore()){over=!!(G.won||G.lost);render();toast("Simpanan dimuatkan.")}else toast("Tiada simpanan ditemui.")});
+$("reset").addEventListener("click",()=>{if(confirm("Mulakan perniagaan baharu?"))reset()});
+function reset(){G=fresh();selected=0;over=false;$("overlay").classList.add("hidden");render()}
+if(!restore())G=fresh();render();
+})();
+</script>
+</body></html>
